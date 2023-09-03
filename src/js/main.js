@@ -34,7 +34,7 @@ navLinks.forEach(navLink => {
 const mySwiper = new Swiper ('.swiper', {
 
   loop: true, 
-  autoplay: {delay: 3000,},
+  autoplay: {delay: 5000,},
 
   pagination: {
     el: '.swiper-pagination', //ページネーションクラス名要素
