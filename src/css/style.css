@@ -145,16 +145,19 @@ body {
   color: var(--main-color);
 }
 
-.思い出などで::after {
-  content: '';
-  display: block;
-  width: 0;
-  transition: width 0.5s;
-  border-bottom: 1px solid var(--black-color);
-}
-
-.思い出などで:hover::after {
-  width: 100%;
+@media screen and (min-width: 768px) {
+  .思い出などで::after {
+    content: '';
+    display: block;
+    width: 0;
+    transition: width 0.5s;
+    border-bottom: 1px solid var(--black-color);
+  }
+  
+  .思い出などで:hover::after {
+    width: 100%;
+  }
+  
 }
 
 /* ハンバーガー */
