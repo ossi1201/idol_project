@@ -1,0 +1,709 @@
+@charset "UTF-8";
+
+/* カスタムプロパティ */
+:root {
+	/* 色管理用の変数 */
+	--white-color: #fff;
+	--black-color: #4C4C4C;
+  --gray-color: #DCDCDC;
+  --base-color: #FFF9EA;
+	--main-color: #F7B3DA;
+	--primary-color: #8CFFC1;
+  --shiga-color: #ffe500;
+}
+:root {
+	/* コンテンツ幅管理用の変数 */
+	--content-width-sm: 320px;
+	--content-width-lg: 960px;
+}
+:root {
+	/* z-index管理用の変数 */
+	--z-index-back: -1;
+	--z-index-default: 1;
+	--z-index-header: 100;
+	--z-index-menu: 150;
+	--z-index-modal: 200;
+}
+/* 共通 */
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  color: var(--black-color);
+  background: var(--base-color);
+}
+.なかなかカメラONにしなかったあの頃・・・ {
+  padding: 40px 0;
+}
+   /* タイトル */
+.全身が映っているモカ先生 {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+@media screen and (min-width: 1080px) {
+  .全身が映っているモカ先生 {
+    font-size: 48px;
+    margin-top: 80px;
+  }
+}
+.化粧水で荒ぶるくーちゃん {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+@media screen and (min-width: 1080px) {
+  .化粧水で荒ぶるくーちゃん {
+    font-size: 48px;
+  }
+}
+
+.秋はモモちゃん先生の季節 {
+  font-size: 18px;
+  color: var(--main-color);
+  text-align: right;
+}
+@media screen and (min-width: 1080px) {
+  .秋はモモちゃん先生の季節 {
+    font-size: 40px;
+  }
+}
+
+
+/* ヘッダー */
+.講師の皆様 {
+  padding: 0 8px;
+  height: 80px; /* 追加 */
+  position: fixed;   /* 追加 */
+  top: 0;  /* 追加 */
+  left: 0; /* 追加 */
+  right: 0; /* 追加 */
+  background-color: var(--base-color);
+  z-index: var(--z-index-header);
+}
+
+ /* 追加 */
+@media screen and (min-width: 1080px) {
+  .講師の皆様{
+    height: 120px;
+  }
+}
+
+.ごきげんよう！ {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: inherit;
+  position: relative;
+}
+.４か月間の感謝を込めて {
+  width: 100px;
+  height: 100px;
+} 
+@media screen and (min-width: 1080px) {
+  .４か月間の感謝を込めて {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* ナビ */
+.作成しました {
+  background: var(--base-color);
+  position: fixed;
+  align-content: center;
+  right: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  transform: translateX(100%);
+  /* padding-top: 40px; */     /* 変更 */
+  z-index: var(--z-index-header);
+}
+@media screen and (min-width: 1080px) {
+  .作成しました {
+    position: static;
+    transform: initial;
+    background-color: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: end;
+    width: 50%;
+  }
+  .コードの中身まで {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+}
+.思い出などで {
+  text-align: center;
+  padding: 24px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.思い出などで::after {
+  content: '';
+  display: block;
+  width: 0;
+  transition: width 0.5s;
+  border-bottom: 1px solid var(--black-color);
+}
+
+.思い出などで:hover::after {
+  width: 100%;
+}
+
+/* ハンバーガー */
+.クラス名を {
+  width: 50px;
+  height: 50px;
+}
+@media screen and (min-width: 1080px) {
+  .クラス名を {
+    display: none;
+  }
+}
+.書いてみました！ {
+  background: var(--main-color);
+  border-radius: 50%;
+  position: relative;
+  z-index: var(--z-index-menu);
+}
+.書いてみました！ span {
+  width: 24px;
+  height: 4px;
+  background: var(--base-color);
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: ease .4s;
+  display: block;
+}
+
+.書いてみました！ span:nth-child(1) {
+  top: 35%;
+}
+.書いてみました！ span:nth-child(2) {
+  top: 60%;
+}
+/* ハンバーガーメニュークリック後のスタイル */
+.作成しました.active {
+  transform: translateX(0);
+  
+}
+.書いてみました！.active {
+  background: var(--base-color);
+}
+.書いてみました！.active span {
+  background: var(--main-color);
+}
+.書いてみました！.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%) rotate(45deg);
+}
+.書いてみました！.active span:nth-child(2) {
+  top: 50%;
+  transform: translate(-50%) rotate(-45deg);
+}
+
+/*  KV  */
+.楽しんでもらえたら嬉しいです {
+  margin-top: 80px;
+  height: 100vh;
+  background-image: url(../img/KV_SP.jpg);
+  background-size: cover;
+  background-position: center;
+}
+@media screen and (min-width: 768px) {
+  .楽しんでもらえたら嬉しいです {
+    background-image: url(../img/KV_PC.png);
+    margin-top: 120px;
+    max-width: 100vw;
+    height: 100vh;
+  }
+}
+
+/* main */
+.zeroplusでの思い出 {
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+@media screen and (min-width: 1080px) {
+  .zeroplusでの思い出 {
+    width: var(--content-width-lg);
+  }
+}
+/* ---Top--- */
+/* info */
+.swiper {
+  margin: 24px 0;
+}
+@media screen and (min-width: 1080px) {
+  .swiper {
+    margin: 40px;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .swiper-slide {
+    width: 960px;
+  }
+}
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 20px;
+  color: var(--primary-color);
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
+.swiper-slide img {
+  height: auto;
+  width: 100%;
+}
+
+/* schedule */
+.ZeroPlusへの愛を叫んで1番をとりたかったモモちゃん先生 {
+  margin: 24px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 1080px) {
+  .ZeroPlusへの愛を叫んで1番をとりたかったモモちゃん先生 {
+    margin: 40px 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.出席とってたら鼻血が止まらなくなったあつき先生 {
+  padding: 8px;
+}
+@media screen and (min-width: 1080px) {
+  .出席とってたら鼻血が止まらなくなったあつき先生 {
+    font-size: 18px;
+  }
+}
+.パーソナルカラーが白のおっしーさん {
+  font-size: 12px;
+}
+@media screen and (min-width: 1080px) {
+  .パーソナルカラーが白のおっしーさん {
+    font-size: 14px;
+  }
+}
+.なかなか来ない起きれない男かっつー {
+  padding: 8px;
+}
+@media screen and (min-width: 1080px) {
+  .なかなか来ない起きれない男かっつー {
+    font-size: 18px;
+  }
+}
+
+
+/*  Contents  */
+
+
+
+/* 点滅 */
+.梅酒職人ぷぅさん {
+  margin: 24px 0;
+}
+
+@media screen and (min-width: 1080px) {
+  .梅酒職人ぷぅさん {
+    margin: 40px 0;
+  }
+}
+
+.くぅちゃんの宇宙人にツボるゆかさん {
+	animation: blinking 1s ease-in-out infinite alternate;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+@media screen and (min-width: 1080px)  {
+  .くぅちゃんの宇宙人にツボるゆかさん {
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+@keyframes blinking {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+.パーソナルカラーホワイトのおっしー {
+  margin: 0 auto;
+}
+
+.社畜うさぎ大量発生 {
+  width: 100%;
+  cursor: pointer;
+}
+
+.挙手早押し大会になりがち + .挙手早押し大会になりがち{
+  margin-top: 16px;
+}
+
+.ピクミンでウキウキの息子さんをお持ちのあきさん {
+  margin: 24px 0;
+  display: block;
+  text-align: center;
+}
+@media screen and (min-width: 1080px) {
+  .ピクミンでウキウキの息子さんをお持ちのあきさん {
+    margin: 40px 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ピクミンでウキウキの息子さんをお持ちのあきさん {
+    max-width: var(--content-width-lg);
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .挙手早押し大会になりがち + .挙手早押し大会になりがち{
+    margin-top: 0;
+  }
+}
+
+
+
+/* Goods */
+
+.goods_inner {
+  margin: 0 auto;
+}
+
+.チャットでボケる先生たち {
+  margin-top: 20px;
+}
+
+.チャットでボケる先生たち > img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .チャットでボケる先生たち > img {
+    width: 400px;
+  }
+}
+
+.ツッコミたいけど様子見 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  .ツッコミたいけど様子見 {
+    margin-top: 20px;
+  }
+}
+
+.BGMリクエストして良いのかな {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .BGMリクエストして良いのかな{
+    margin-top: 20px;
+  }
+}
+
+/* ---About--- */
+.画面共有でデスクトップに変なもの映ってないかドキドキ {
+  height: 100vh;
+  background-image: url(../img/about_sp.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 768px) {
+  .画面共有でデスクトップに変なもの映ってないかドキドキ {
+    background-image: url(../img/about_pc.jpg);
+    height: 560px;
+    margin-top: 80px;
+  }
+
+}
+
+.BGMリクエストして良いのかな {
+  font-weight: bold;
+}
+.ここまでオッケーの人挙手はだれよりもはやい {
+  font-weight: bold;
+  font-size: 24px;
+  color: var(--primary-color);
+  text-align: center;
+  margin-top: 40px;
+  position: relative;
+}
+@media screen and (min-width: 1080px) {
+  .ここまでオッケーの人挙手はだれよりもはやい {
+    font-size: 48px;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .ここまでオッケーの人挙手はだれよりもはやい::before {
+    position: absolute;
+    left: 20%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ここまでオッケーの人挙手はだれよりもはやい::after {
+    position: absolute;
+    right: 20%;
+}
+}
+
+.考えているうちに進む授業 {
+  margin: 40px 0;
+}
+@media screen and (min-width: 1080px) {
+  .考えているうちに進む授業 {
+    text-align: center;
+  }
+}
+
+/* ---Sponsor--- */
+.スラックにいまだに慣れない {
+  padding: 40px 0;
+}
+.ボケに参加したいのに出てこない悲しさ {
+  background: var(--white-color);
+  padding: 16px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px 2px var(--main-color);
+}
+.ボケに参加したいのに出てこない悲しさ:not(:first-child) {
+  margin-top: 24px;
+}
+@media screen and (min-width: 1080px) {
+  .ボケに参加したいのに出てこない悲しさ:not(:first-child) {
+    margin-top: 40px;
+  }
+}
+.勉強会参加しても空気になりがち {
+  font-size: 24px;
+  font-weight: bold;
+}
+@media screen and (min-width: 1080px) {
+  .勉強会参加しても空気になりがち {
+    font-size: 32px;
+  }
+}
+.背景エフェクト取れないかヒヤヒヤしがち {
+  margin-top: 16px;
+  font-size: 18px;
+}
+@media screen and (min-width: 1080px) {
+  .背景エフェクト取れないかヒヤヒヤしがち {
+    font-size: 24px;
+  }
+}
+
+/* フッター */
+.最後になりますが {
+  background: var(--main-color);
+  height: 40px;
+}
+.４か月間ありがとうございました💖 {
+  color: var(--base-color);
+  display: flex;
+  justify-content: center;
+  padding-top: 11px;
+}
+
+
+
+/* profile */
+
+/* フッター */
+.最後になりますが {
+  background: var(--main-color);
+  height: 40px;
+}
+.４か月間ありがとうございました💖 {
+  color: var(--base-color);
+  display: flex;
+  justify-content: center;
+  padding-top: 11px;
+}
+
+/* profile */
+.モカ先生はきっと石鹸の香り,
+.モモちゃん先生は甘い系の香り,
+.しがちゃん先生はシトラス系の香り,
+.背景エフェクト取れないかヒヤヒヤしがち0 {
+  max-width: var(--content-width-sm);
+  margin: auto;
+  line-height: 2em;
+}
+
+@media screen and (min-width: 1080px) {
+  .モカ先生はきっと石鹸の香り,
+  .モモちゃん先生は甘い系の香り,
+  .しがちゃん先生はシトラス系の香り,
+  .背景エフェクト取れないかヒヤヒヤしがち0 {
+    max-width: var(--content-width-lg);
+  }
+}
+
+.ももちゃん先生は帰国子女っぽそう {
+  margin: 80px 0;
+}
+
+@media screen and (min-width: 1080px) {
+  .ももちゃん先生は帰国子女っぽそう {
+    padding: 40px 28px;
+  }
+}
+
+h1 {
+  font-size: 24px;
+  color: var(--main-color);
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 1080px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+
+.もか先生はミニマリストそう {
+  color: var(--primary-color);
+}
+
+@media screen and (min-width: 1080px) {
+  .もか先生はほろ酔いでよってそう {
+    width: 800px;
+    margin: auto;
+  }
+}
+
+.ももちゃん先生のパジャマはジェラピケ {
+  margin-bottom: 40px;
+  width: 320px;
+  background-color: var(--white-color);
+  box-shadow: 0 0 2px 2px var(--gray-color);
+}
+
+@media screen and (min-width: 1080px) {
+  .ももちゃん先生のパジャマはジェラピケ {
+    width: 800px;
+  }
+  .ももちゃん先生のパジャマはジェラピケ img {
+    height: 320px;
+    width: auto;
+  }
+}
+
+.意外とお酒強そう・・・・（つまみは餃子）,
+.ワイン片手にもってそう,
+.ずっと黒髪そう {
+  width: 320px;
+  height: 320px;
+  background-color: var(--gray-color);
+}
+
+.ずっと黒髪そう {
+  background-color: var(--primary-color);
+}
+.ワイン片手にもってそう {
+  background-color: var(--main-color);
+}
+.意外とお酒強そう・・・・（つまみは餃子） {
+  background-color: var(--shiga-color);
+}
+
+@media screen and (min-width: 1080px) {
+  .意外とお酒強そう・・・・（つまみは餃子）,
+  .ワイン片手にもってそう,
+  .ずっと黒髪そう {
+    width: 800px;
+    height: 320px;
+    background-color: var(--gray-color);
+    text-align: center;
+  }
+  .ずっと黒髪そう {
+    background-color: var(--primary-color);
+  }
+  .ワイン片手にもってそう {
+    background-color: var(--main-color);
+  }
+  .意外とお酒強そう・・・・（つまみは餃子） {
+    background-color: var(--shiga-color);
+  }
+
+  .ずっと黒髪そう li,
+  .ワイン片手にもってそう li,
+  .意外とお酒強そう・・・・（つまみは餃子） li {
+    left: 30%;
+  }
+}
+
+.わんちゃんとのお話赤ちゃん言葉そう,
+.お花系の柔軟剤使ってそう,
+.冷凍庫お取り寄せの餃子でいっぱいそう {
+  padding: 24px 40px;
+}
+
+.わんちゃんとのお話赤ちゃん言葉そう {
+  color: #00a307;
+}
+.お花系の柔軟剤使ってそう {
+  color: #8e2525;
+}
+.冷凍庫お取り寄せの餃子でいっぱいそう {
+  color: #ffe500;
+}
+
+.しがちゃん先生は誰よりも新作コスメの話題に強そう {
+  text-align: right;
+  color: var(--main-color);
+}
+
+/* moka */
+
+.多分長女,
+.パジャマはジェラピケ,
+.ひまわり似合いそう {
+  color: var(--black-color);
+  margin-bottom: 32px;
+}
+
+.多分長女:first-of-type,
+.パジャマはジェラピケ:first-of-type,
+.ひまわり似合いそう:first-of-type {
+  margin-top: 40px;
+}
+
+.さらっとすごい料理作ってそう,
+.朝に紅茶飲んでそう,
+.餃子のTシャツ休日に着てそう {
+  color: var(--main-color);
+}
+
+.slider img {
+  height: 320px;
+  width: auto;
+}
+
+
+
